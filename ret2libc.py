@@ -2,6 +2,10 @@ from pwn import *
 
 r = process('./vuln') #the binary is run
 
+#https://ctf101.org/binary-exploitation/what-is-the-got/
+#GOT == Global Offset Table which is the section inside of programs that holds address of functions that are dynamically linked. The GOT contains pointers to libraries twhich move around due to ASLR
+#PLT == Before a functions address has been resolved, the GOT points to an entry in the Procedure Linkage Table (PLT). This is a small "stub" function which is responsible for calling the dynamic linker with (effectively) the name of the function that should be resolved.
+
 puts_plt = #puts address in PLT - first call from main()
 puts_got = #puts address in GOT - it points to the libc address
 main = #address of main from PLT
